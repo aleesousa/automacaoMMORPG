@@ -1,28 +1,62 @@
-# Bot-ED-JUGG - Available and Working Since 03/01/25
+# Bot-ED-JUGG
 
-## Description
+Automacao experimental para partidas Juggernaut no Epic Duel.
 
-Bot for Juggernaut in Epic-Duel. Automates actions in the Epic Duel game to assist with Juggernaut gameplay.
+## Recursos
 
-## Required Files
+- interface com estado da execucao e contador de partidas;
+- somente um processo do bot por vez;
+- parada segura pelo botao ou pela tecla F10 (com a janela em foco);
+- PyAutoGUI Fail-Safe ativo: mova o mouse rapidamente para o canto superior esquerdo;
+- busca de imagens com timeout, sem clicar quando a imagem nao for encontrada;
+- log de execucao salvo em `bot.log`;
+- interrupcao automatica depois de cinco erros consecutivos.
 
-All necessary files to run the bot are available above.
+## Requisitos
 
-## Requirements
+- Python 3.9 ou superior;
+- imagens de referencia dentro da pasta `skils/`;
+- resolucao e escala de tela compativeis com as imagens capturadas.
 
-- **Python**: Make sure Python is installed on your machine. You can download it at [python.org](https://www.python.org/downloads/).
-- **VSCode**: Use VSCode to edit and run the code.
+Instale as dependencias dentro da pasta do projeto:
 
-## How It Works
+```bash
+python3 -m pip install -r requirements.txt
+```
 
-1. Download the files and extract them.
-2. Open VSCode and load the bot folder.
-3. Follow the link below to see how the bot works.
+## Estrutura esperada
 
-   [**How It Works - Video**](https://drive.google.com/file/d/1aqwQMQZmeMtbGB2NV3OQU2RgHl3zSS6q/view?usp=sharing)
+```text
+Bot-Jugg/
+├── app.py
+├── requirements.txt
+└── skils/
+    ├── jugg.png
+    ├── skil1.png ... skil7.png
+    ├── continuar.png ... continuar3.png
+    └── x3.png ... x21.png e x23.png
+```
 
-### Note
+O programa valida esses arquivos antes de iniciar e mostra quais estao ausentes.
 
-The delay is intentional, but if you prefer to remove the slight delay to use the skills faster, you have the source code available to make the necessary adjustments.
+## Executar
 
-**Good luck and play wisely!**
+```bash
+python3 app.py
+```
+
+1. Deixe o jogo visivel e sem outras janelas sobre ele.
+2. Clique em **Start Bot**.
+3. Use **Stop Bot** ou F10 para interromper.
+4. Em uma emergencia, use o Fail-Safe levando o mouse ao canto superior esquerdo.
+
+[Video de demonstracao](https://drive.google.com/file/d/1aqwQMQZmeMtbGB2NV3OQU2RgHl3zSS6q/view?usp=sharing)
+
+## Ajustes
+
+Os valores `CONFIDENCE`, `INTERVALO_BUSCA` e `INTERVALO_ENTRE_CICLOS`, no inicio de
+`app.py`, controlam a tolerancia visual e a velocidade. Reduzir demais os intervalos
+pode aumentar falsos cliques e consumo de CPU.
+
+Automacoes podem contrariar os termos do jogo e causar penalidades na conta. Use
+somente onde isso for permitido e nao tente contornar mecanismos anti-cheat.

@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+.venv/
+bot.log
+.DS_Store
