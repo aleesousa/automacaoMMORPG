@@ -1,6 +1,6 @@
 # Bot-ED-JUGG
 
-Automacao experimental para partidas Juggernaut no Epic Duel.
+Automacao experimental para partidas Juggernaut no jogo Epic Duel.
 
 ## Recursos
 
@@ -27,7 +27,7 @@ python3 -m pip install -r requirements.txt
 ## Estrutura esperada
 
 ```text
-Bot-Jugg/
+automacaoMMORPG/
 ├── app.py
 ├── requirements.txt
 └── skils/
@@ -40,6 +40,23 @@ Bot-Jugg/
 O programa valida esses arquivos antes de iniciar e mostra quais estao ausentes.
 
 ## Executar
+
+No Windows (PowerShell), prepare o ambiente na primeira vez:
+
+```powershell
+cd C:\Estudos\automacaoMMORPG
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Para abrir o programa, use o Python do ambiente virtual (nao precisa ativa-lo):
+
+```powershell
+cd C:\Estudos\automacaoMMORPG
+.\.venv\Scripts\python.exe app.py
+```
+
+Em outros sistemas:
 
 ```bash
 python3 app.py
